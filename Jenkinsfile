@@ -1,17 +1,15 @@
 pipeline {
-agent any
+    agent any
     stages{
-        stage('build') {
-            steps {
-                echo "****Entering build block******"
-                retry(3) {
-                echo "Welcome to D4"
-                error "Testing the retry block"
+        stage('TimeoutStage'){
+            steps{
+                timeout(time:5 unit:SECONDS){
+                    echo "Sleeping for 60 sec"
+                    sleep 60
                 }
-                echo "After 3 times"
+                
+
             }
         }
     }
 }
-
-
