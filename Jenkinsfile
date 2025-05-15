@@ -1,19 +1,3 @@
-// // Agent lable
-// pipeline
-// {
-// agent {
-//     label 'java-agent-slave'
-// }
-// stages{
-//     stage("Build"){
-//         steps{
-//             echo "hello"
-//         }
-//     }
-// }
-// }
-
-
 pipeline
 {
 agent{
@@ -28,17 +12,16 @@ agent{
                  stage('Scripted stage'){
                         steps{
                               echo "*****Excute scripted stage*******"
-                        scrip{
+                        script{
                          def course ="k8s"
                         if(course == "k8s") {
-                        println("Thank you enrolling {$course} course")
+                        println("Thank you enrolling $course course")
                                          }
                         else
                         println("Do learn k8s")
                        }
-                            sleep 10 //SECONDS
+                            sleep 20 //SECONDS
                  }
              }
         }
-
 }
