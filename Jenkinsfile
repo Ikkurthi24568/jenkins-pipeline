@@ -1,27 +1,18 @@
-pipeline
-{
-agent{
-    label 'java-agent-slave'
-}
-        stages{
-                 stage('Build')  {
-                                steps{
-                                       echo "this is the stage for building MVN app"
-                                      }
-                                 }
-                 stage('Scripted stage'){
-                        steps{
-                              echo "*****Excute scripted stage*******"
-                        script{
-                         def course ="k8s"
-                        if(course == "k8s") {
-                        println("Thank you enrolling $course course")
-                                         }
-                        else
-                        println("Do learn k8s")
-                       }
-                            sleep 20 //SECONDS
-                 }
-             }
+pipeline{
+agent any{
+    stages{
+        stage('build'){
+            steps{
+                echo "****Entering build block******"
+                retry(3){
+                echo "Welcome to D4"
+                error "Testing the retry block"
+                }
+                echo "After 3 times"
+            }
         }
+    }
+}
+
+
 }
