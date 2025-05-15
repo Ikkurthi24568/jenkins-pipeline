@@ -2,7 +2,7 @@
 pipeline
 {
 agent {
-    lable 'java-agent-slave'
+    label 'java-agent-slave'
 }
 stages{
     stage("Build"){
