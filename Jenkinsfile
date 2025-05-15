@@ -1,10 +1,10 @@
-pipeline{
-agent any{
+pipeline {
+agent any
     stages{
-        stage('build'){
-            steps{
+        stage('build') {
+            steps {
                 echo "****Entering build block******"
-                retry(3){
+                retry(3) {
                 echo "Welcome to D4"
                 error "Testing the retry block"
                 }
@@ -15,4 +15,3 @@ agent any{
 }
 
 
-}
